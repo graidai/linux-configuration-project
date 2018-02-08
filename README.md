@@ -53,15 +53,15 @@ Amazon lightsail server with Ubuntu OS.
 ## Instructions to run the web app
 The app implements google oauth to handle users and login sessions. However,google doesn't allow for raw IP address to be used in redirecting to host after the authentication has been established. Therefore, it is imperative to be able to access the server without the use of IP address to use the site authentication.
 
-The redirect has been set to http://localhost:3000 for redirectURI. One can only access the auth service if browsing with the given localhost url.
+The redirect has been set to http://localhost:3000 for redirectURI in google API. One can only access the auth service if browsing with the given localhost url.
 One of the methods to do this is do SSH tunneling with one's localhost.
 
-  - `$ ssh -L 8000:52.15.243.116:80 <ur hostname>`
+  - `$ ssh -L 3000:52.15.243.116:80 <ur hostname>`
       
-      where, 8000 is the your localhost:8000, 52... is the server IP, 80 is the html port, and `<ur hostname>` is the name of your machine.
+      where, 3000 is the your localhost:3000, 52... is the server IP, 80 is the html port, and `<ur hostname>` is the name of your machine.
 
 
-Before, doing this make sure to open the localhost ssh port 22 at `/etc/ssh/sshd_config` and restart the service `service ssh restart` or `launchctl load -w /System/Library/LaunchDaemons/ssh.plist` for mac.
+Before, doing this make sure to open the local computer's ssh port 22 at `/etc/ssh/sshd_config` and restart the service `service ssh restart` or `launchctl load -w /System/Library/LaunchDaemons/ssh.plist` for mac.
 
 (However, this method is not encouraged, due to security reasons)
 
